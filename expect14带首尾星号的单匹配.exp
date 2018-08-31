@@ -1,0 +1,7 @@
+#命中的字符串是最后一个hit及之前所有的内容
+set timeout -1
+expect "*hi*"
+send "hit\n"
+send "$expect_out(0,string)"
+send "all\n"
+send "$expect_out(buffer)"

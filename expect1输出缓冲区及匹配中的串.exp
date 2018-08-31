@@ -1,0 +1,4 @@
+#string前面不能加空格，否则报错
+expect "hi"
+send "you typed <$expect_out(buffer)>"
+send "but I only expected <$expect_out(0,string)>"

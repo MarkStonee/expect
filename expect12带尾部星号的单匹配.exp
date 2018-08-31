@@ -1,0 +1,7 @@
+#命中hi及之后所有的内容，buffer整个串
+set timeout -1
+expect "hi*"
+send "hit\n"
+send "$expect_out(0,string)"
+send "all\n"
+send "$expect_out(buffer)"

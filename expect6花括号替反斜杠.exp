@@ -1,0 +1,6 @@
+#如果不采用行末加反斜杠的方式，则需要在命令后加花括号
+expect {
+"hi" {send "You said hi\n"}
+"hello" {send "Hello yourself\n"}
+"bye" {send "That was unexpected\n"}
+}

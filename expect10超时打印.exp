@@ -1,0 +1,6 @@
+#!/usr/local/bin/expect --
+#虽然加了上面这句话，但是直接./expect10.exp 依然会有问题
+set timeout $argv
+expect "\n" {
+    send [string trimright "$expect_out(buffer)" "\n"]
+}

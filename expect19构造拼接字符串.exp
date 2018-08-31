@@ -1,0 +1,6 @@
+
+for {set i 1} {$i<=10} {incr i} {
+	set var 10.12.5.	
+	append var $i
+	puts $var
+}

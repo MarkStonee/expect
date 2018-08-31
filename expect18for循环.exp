@@ -1,0 +1,4 @@
+set argc [llength $argv]
+for {set i 0} {$i<$argc} {incr i} {
+	puts "arg $i: [lindex $argv $i]"
+}

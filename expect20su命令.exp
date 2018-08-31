@@ -1,0 +1,6 @@
+set timeout -1
+spawn su 
+expect Password {send "ubuntu\n"}
+interact
+expect +
+send "hahaha\n"

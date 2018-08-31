@@ -1,0 +1,7 @@
+#lrange可以将参数二理解为一个新的进程，eval将这个新的进程用spawn调起
+set timeout [lindex $argv 0]
+eval spawn [lrange $argv 1 end]
+expect {
+	timeout {puts "took too much time"}
+	eof {puts "finished in time"}
+}

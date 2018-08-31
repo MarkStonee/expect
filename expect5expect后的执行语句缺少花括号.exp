@@ -1,0 +1,2 @@
+#没有花括号会报错
+expect "hi" send "You said hi\n"

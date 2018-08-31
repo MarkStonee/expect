@@ -1,0 +1,2 @@
+#命令与匹配串的引号之间必须有一个空格，匹配串的右引号与执行语句左花括号之间必须有一个空格，否则报错 
+expect "hi" {send "You said $expect_out(buffer)\n"}

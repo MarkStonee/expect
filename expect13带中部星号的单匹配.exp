@@ -1,0 +1,7 @@
+#尽可能长的匹配到由两个hi包裹起来的字符串，中间的*可以是任意数量的任意字符
+set timeout -1
+expect "hi*hi"
+send "hit\n"
+send "$expect_out(0,string)"
+send "all\n"
+send "$expect_out(buffer)"

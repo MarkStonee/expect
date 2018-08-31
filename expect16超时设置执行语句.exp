@@ -1,0 +1,6 @@
+expect {
+	timeout {puts "timed out"; exit}
+	"refused" exit
+	"unknow host" exit
+	"Name"
+}

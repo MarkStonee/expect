@@ -1,0 +1,4 @@
+#语句同时搜寻这三个匹配，任意一个首先匹配上则运行对应的语句然后结束
+expect "hi" {send "You said hi\n"} \
+        "hello" {send "Hello yourself\n"} \
+	"bye"   {send "That was unexpected\n"}
