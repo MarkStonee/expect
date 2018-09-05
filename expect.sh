@@ -15,7 +15,8 @@ for {set i 220} {$i<=230} {incr i} {
 		send "$password\n"
 			expect { 
 			"*password: " { send "$password\n"; exp_continue} 
-			"Permission denied" { continue }
+			"(publickey,password)" { continue }
+			"gssapi-with-mic,password)" { continue }
 			"tegra-ubuntu" {}
 			}			
 		}
@@ -71,28 +72,15 @@ for {set i 220} {$i<=230} {incr i} {
 	#完成构建并进入文件夹
 }
 
-send "exit\n"
-
-expect { 
-" No route to host" { continue }
-"yes/no" { send "yes\n";exp_continue} 
-"*password:*" {
-	send "$password\n"
-		expect { 
-		"*password: " { send "$password\n"; exp_continue} 
-		"Permission denied" { continue }
-		"tegra-ubuntu" {}
-		}			
-	}
-	
-}
+expect "arm_64$"
+spawn exit
 
 for {set i 220} {$i<=230} {incr i} {
 	puts $i
 	set var 10.12.5.	
 	append var $i
 	#拷贝文件到远程
-	send "scp -r /home/panshi/node_proc ubuntu@$var:/home/panshi/local\n"
+	spawn scp -r /home/panshi/node_proc ubuntu@$var:/home/panshi/local
 	expect { 
 		"yes/no" {send "yes\n"; exp_continue}
 		"password:" {
@@ -105,7 +93,6 @@ for {set i 220} {$i<=230} {incr i} {
 		"#" {}
 	}
 }
-	interact
 #完成拷贝文件到远程
-
+	
 #把上面的步骤再来一遍，找到拷贝的文件，执行
